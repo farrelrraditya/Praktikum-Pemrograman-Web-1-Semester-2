@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tugas 3 - Dashboard Nilai</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f8;
+        }
+
+        .navbar {
+            background: #0f172a !important;
+        }
+
+        .navbar-brand span {
+            color: #38bdf8;
+        }
+
+        /* Profile Header */
+        .profile-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f3460 100%);
+            padding: 36px 0 28px;
+            color: white;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            object-fit: cover;
+        }
+
+        .profile-banner h5 {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .profile-banner p {
+            opacity: 0.7;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+
+        /* Stat Cards */
+        .stat-card {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
+            transition: transform 0.18s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* Table Card */
+        .table-card {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+        }
+
+        .table-card .card-header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 22px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .table thead th {
+            background: #0f172a;
+            color: white;
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: none;
+            padding: 12px 16px;
+        }
+
+        .table tbody td {
+            padding: 13px 16px;
+            vertical-align: middle;
+            font-size: 0.875rem;
+            border-color: #f3f4f6;
+        }
+
+        .table tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 6px;
+        }
+
+        .btn-detail {
+            font-size: 0.78rem;
+            padding: 4px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* Modal */
+        .modal-content {
+            border-radius: 14px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .modal-header {
+            background: #0f172a;
+            color: white;
+            border-radius: 14px 14px 0 0;
+            padding: 18px 24px;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-body table td,
+        .modal-body table th {
+            font-size: 0.875rem;
+            padding: 10px 14px;
+        }
+
+        .modal-body table th {
+            color: #6b7280;
+            font-weight: 600;
+            width: 40%;
+            background: #f9fafb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span>◈</span> Dashboard Akademik
+            </a>
+            <span class="text-white opacity-50 small">Semester Genap 2024/2025</span>
+        </div>
+    </nav>
+
+    <!-- Profile Banner -->
+    <div class="profile-banner">
+        <div class="container">
+            <div class="d-flex align-items-center gap-3">
+                <img src="https://i.pravatar.cc/150?img=12" class="avatar" alt="Foto Profil">
+                <div>
+                    <h5>Budi Santoso</h5>
+                    <p>NIM: 2024001 &nbsp;|&nbsp; TRPL Semester 2</p>
+                    <span class="badge bg-success">Aktif</span>
+                    <span class="badge ms-1" style="background:#1e40af;">Mahasiswa</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4">
+
+        <!-- Statistik -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <div class="card stat-card text-center py-3">
+                    <div class="card-body">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-value text-primary">18</div>
+                        <div class="stat-label">Total SKS</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card text-center py-3">
+                    <div class="card-body">
+                        <div class="stat-icon">🎓</div>
+                        <div class="stat-value text-success">3.75</div>
+                        <div class="stat-label">IPK Sementara</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card stat-card text-center py-3">
+                    <div class="card-body">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-value text-warning">6</div>
+                        <div class="stat-label">Mata Kuliah Lulus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabel Nilai -->
+        <div class="card table-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>📊 Daftar Nilai — Semester 1</span>
+                <span class="badge bg-secondary">6 Mata Kuliah</span>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Mata Kuliah</th>
+                                <th>SKS</th>
+                                <th>Nilai Huruf</th>
+                                <th>Nilai Angka</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-muted">1</td>
+                                <td class="fw-500">Pemrograman Web 1</td>
+                                <td>3</td>
+                                <td><span class="badge bg-success">A</span></td>
+                                <td>90</td>
+                                <td><button class="btn btn-outline-primary btn-detail" data-bs-toggle="modal" data-bs-target="#modalDetail" onclick="isiModal('Pemrograman Web 1','PW101',3,'Ir. Ahmad Fauzi, M.Kom',88,92,'A',90)">Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">2</td>
+                                <td>Basis Data</td>
+                                <td>3</td>
+                                <td><span class="badge bg-success">A</span></td>
+                                <td>94</td>
+                                <td><button class="btn btn-outline-primary btn-detail" data-bs-toggle="modal" data-bs-target="#modalDetail" onclick="isiModal('Basis Data','BD102',3,'Drs. Budi Rahmat, M.T',78,86,'B+',82)">Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">3</td>
+                                <td>Aljabar Vektor dan Matriks</td>
+                                <td>3</td>
+                                <td><span class="badge bg-success">A+</span></td>
+                                <td>96</td>
+                                <td><button class="btn btn-outline-primary btn-detail" data-bs-toggle="modal" data-bs-target="#modalDetail" onclick="isiModal('Algoritma & Pemrograman','AP103',3,'Dr. Sri Wahyuni, M.Kom',93,97,'A+',95)">Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">4</td>
+                                <td>Jaringan Komputer</td>
+                                <td>3</td>
+                                <td><span class="badge bg-success">A</span></td>
+                                <td>94</td>
+                                <td><button class="btn btn-outline-primary btn-detail" data-bs-toggle="modal" data-bs-target="#modalDetail" onclick="isiModal('Jaringan Komputer','JK104',3,'Ir. Hendra Saputra, M.T',65,74,'C',70)">Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">5</td>
+                                <td>Matematika Diskrit</td>
+                                <td>3</td>
+                                <td><span class="badge bg-success">A</span></td>
+                                <td>93</td>
+                                <td><button class="btn btn-outline-primary btn-detail" data-bs-toggle="modal" data-bs-target="#modalDetail" onclick="isiModal('Matematika Diskrit','MD105',3,'Prof. Siti Rahayu, M.Si',50,60,'D',55)">Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">6</td>
+                                <td>Bahasa Inggris</td>
+                                <td>2</td>
+                                <td><span class="badge bg-success">A</span></td>
+                                <td>92</td>
+                                <td><button class="btn btn-outline-primary btn-detail" data-bs-toggle="modal" data-bs-target="#modalDetail" onclick="isiModal('Bahasa Indonesia','BI106',2,'Dra. Dewi Lestari, M.Hum',75,81,'B',78)">Detail</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal Detail -->
+    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">📖 Detail Mata Kuliah</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <table class="table table-bordered mb-0">
+                        <tr>
+                            <th>Nama Mata Kuliah</th>
+                            <td id="m-nama">-</td>
+                        </tr>
+                        <tr>
+                            <th>Kode MK</th>
+                            <td id="m-kode">-</td>
+                        </tr>
+                        <tr>
+                            <th>SKS</th>
+                            <td id="m-sks">-</td>
+                        </tr>
+                        <tr>
+                            <th>Dosen Pengampu</th>
+                            <td id="m-dosen">-</td>
+                        </tr>
+                        <tr>
+                            <th>Nilai UTS</th>
+                            <td id="m-uts">-</td>
+                        </tr>
+                        <tr>
+                            <th>Nilai UAS</th>
+                            <td id="m-uas">-</td>
+                        </tr>
+                        <tr>
+                            <th>Nilai Akhir</th>
+                            <td id="m-akhir">-</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function isiModal(nama, kode, sks, dosen, uts, uas, huruf, angka) {
+            document.getElementById('m-nama').textContent = nama;
+            document.getElementById('m-kode').textContent = kode;
+            document.getElementById('m-sks').textContent = sks + ' SKS';
+            document.getElementById('m-dosen').textContent = dosen;
+            document.getElementById('m-uts').textContent = uts;
+            document.getElementById('m-uas').textContent = uas;
+            document.getElementById('m-akhir').innerHTML = huruf + ' (' + angka + ')';
+        }
+    </script>
+</body>
+
+</html>
