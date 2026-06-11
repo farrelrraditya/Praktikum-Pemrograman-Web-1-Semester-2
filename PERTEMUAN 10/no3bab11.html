@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+
+<body>
+<script>
+    var angka1 = parseInt(prompt("Masukkan angka pertama"));
+    var angka2 = parseInt(prompt("Masukkan angka kedua"));
+    var operator = prompt("Masukkan operator (+, -, *, /)");
+    var hasil;
+
+    if(operator == "+"){
+        hasil = angka1 + angka2;
+    }
+    else if(operator == "-"){
+        hasil = angka1 - angka2;
+    }
+    else if(operator == "*"){
+        hasil = angka1 * angka2;
+    }
+    else if(operator == "/"){
+        hasil = angka1 / angka2;
+    }
+    else{
+        hasil = "Operator tidak ditemukan";
+    }
+    document.write("<h2>Hasil = " + hasil + "</h2>");
+</script>
+</body>
+</html>
+
