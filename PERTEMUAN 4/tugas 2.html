@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Pendaftaran</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165289732-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-165289732-1');
+</script>
+
+<!-- Google tag (gtag.js) - GTAG 4 UGM-wide -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4JC39NX24"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L4JC39NX24');
+</script>
+</head>
+<body>
+
+<img src="Free Clean Tech-Inspired LinkedIn Banner Download.jpg"alt="Banner Pendaftaran">
+
+<h2>Form Pendaftaran Peserta Workshop</h2>
+
+<form action="/proses_pendaftaran.php" method="post">
+
+    <fieldset>
+        <legend>Data Pribadi</legend>
+
+        <label for="nama">Nama Lengkap:</label><br>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="tanggal">Tanggal Lahir:</label><br>
+        <input type="date" id="tanggal" name="tanggal"><br><br>
+
+        <label>Jenis Kelamin:</label><br>
+        <input type="radio" id="pria" name="gender" value="Pria">
+        <label for="pria">Pria</label>
+        <input type="radio" id="wanita" name="gender" value="Wanita">
+        <label for="wanita">Wanita</label><br><br>
+
+        <label>Hobi:</label><br>
+        <input type="checkbox" name="hobi" value="Coding"> Coding
+        <input type="checkbox" name="hobi" value="Design"> Design
+        <input type="checkbox" name="hobi" value="Gaming"> Gaming<br><br>
+
+        <label for="jurusan">Pilih Jurusan:</label><br>
+        <select id="jurusan" name="jurusan">
+            <optgroup label="Teknik">
+                <option value="informatika">Informatika</option>
+                <option value="elektro">Teknik Elektro</option>
+            </optgroup>
+            <optgroup label="Non-Teknik">
+                <option value="manajemen">Manajemen</option>
+                <option value="akuntansi">Akuntansi</option>
+            </optgroup>
+        </select><br><br>
+
+        <label for="pesan">Pesan / Alasan Mengikuti:</label><br>
+        <textarea id="pesan" name="pesan" rows="4" cols="40" placeholder="Tuliskan alasan Anda..."></textarea><br><br>
+
+        <label for="foto">Upload Foto:</label><br>
+        <input type="file" id="foto" name="foto" accept="image/*"><br><br>
+
+        <img src="Free Clean Tech-Inspired LinkedIn Banner Download.jpg"alt="Ilustrasi Workshop"><br><br>
+
+        <input type="submit" value="Daftar">
+        <input type="reset" value="Reset">
+
+    </fieldset>
+
+</form>
+
+</body>
+</html>
