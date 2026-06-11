@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FStudio - Meet The Founder</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ── Base ──────────────────────────────────── */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Navbar ────────────────────────────────── */
+    .navbar-custom {
+      background-color: #1a2035;
+      padding: 14px 32px;
+    }
+
+    .navbar-custom .navbar-brand {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .navbar-custom .nav-link {
+      color: #ffffff !important;
+      font-size: 0.95rem;
+      padding: 0 20px;
+      opacity: 0.9;
+    }
+
+    .navbar-custom .nav-link:hover {
+      opacity: 1;
+    }
+
+    /* Hamburger icon warna putih */
+    .navbar-custom .navbar-toggler {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+
+    .navbar-custom .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* ── Hero Section ──────────────────────────── */
+    .hero-section {
+      background: linear-gradient(180deg, #1a56db 0%, #102070 50%, #0b1540 100%);
+      padding: 60px 0 90px;
+    }
+
+    .hero-section .section-title {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .founder-photo {
+      width: 100%;
+      max-width: 285px;
+      height: 215px;
+      object-fit: cover;
+      border-radius: 12px;
+      background-color: #d0d5e0;
+      display: block;
+    }
+
+    .founder-name {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      color: #ffffff;
+      font-size: 1.85rem;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .founder-title {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+
+    .btn-cta {
+      background-color: #2952e3;
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 13px 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-cta:hover {
+      background-color: #1a3fc4;
+      color: #ffffff;
+    }
+
+    /* ── Projects Section ──────────────────────── */
+    .projects-section {
+      padding: 72px 0 80px;
+      background-color: #ffffff;
+    }
+
+    .projects-section .section-heading {
+      color: #2952e3;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .project-card {
+      border: 1.5px solid #8b9cf0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 4px 8px 24px rgba(100, 120, 230, 0.12);
+      height: 100%;
+      background-color: #ffffff;
+    }
+
+    .project-card .card-img-top {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .project-card .card-body {
+      padding: 18px 18px 22px;
+    }
+
+    .project-card .card-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #111827;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .project-card .card-text {
+      font-size: 0.84rem;
+      color: #444444;
+      line-height: 1.6;
+    }
+
+    /* ── Footer ────────────────────────────────── */
+    .footer-custom {
+      background-color: #1a2035;
+      color: #ffffff;
+      text-align: center;
+      padding: 22px 16px;
+      font-size: 0.88rem;
+    }
+
+    /* ── Responsive Mobile ─────────────────────── */
+    @media (max-width: 767.98px) {
+      /* Hero */
+      .hero-section {
+        padding: 48px 0 70px;
+      }
+
+      .hero-section .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 36px;
+      }
+
+      .hero-content-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .founder-photo {
+        max-width: 240px;
+        height: 240px;
+        margin-bottom: 28px;
+      }
+
+      .founder-name {
+        font-size: 1.65rem;
+      }
+
+      .founder-title {
+        font-size: 1rem;
+      }
+
+      /* Projects */
+      .projects-section {
+        padding: 52px 0 60px;
+      }
+
+      .projects-section .section-heading {
+        font-size: 1.7rem;
+        margin-bottom: 32px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero-text-col {
+        padding-left: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-md navbar-custom">
+    <div class="container-fluid px-3 px-md-4">
+      <a class="navbar-brand" href="#">FStudio</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+        <ul class="navbar-nav gap-md-2 py-3 py-md-0">
+          <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Proyek</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════
+       HERO — MEET THE FOUNDER
+  ════════════════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="container">
+
+      <!-- Judul desktop (tampil di atas, tengah) -->
+      <h1 class="section-title">Meet The Founder</h1>
+
+      <div class="row align-items-center justify-content-center">
+
+        <!-- Foto -->
+        <div class="col-md-5 col-12 d-flex justify-content-center justify-content-md-end mb-4 mb-md-0">
+          <img
+            src="profile.JPG"
+            alt="Farrel Raditya"
+            class="founder-photo"
+          />
+        </div>
+
+        <!-- Teks & CTA -->
+        <div class="col-md-5 col-12 hero-content-col hero-text-col">
+          <p class="founder-name">Halo, I'm Farrel Raditya</p>
+          <p class="founder-title">Prev. Senior Product Manager @tiket.com</p>
+          <a href="#" class="btn-cta">
+            Lihat Projek Saya
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       PREVIOUS PROJECT AND CLIENT
+  ════════════════════════════════════════════ -->
+  <section class="projects-section">
+    <div class="container">
+
+      <h2 class="section-heading">Previous Project and Client</h2>
+
+      <div class="row g-4 justify-content-center">
+
+        <!-- Card 1: BRI -->
+        <div class="col-md-4 col-10 col-sm-8">
+          <div class="project-card">
+            <img
+              src="bri.jpeg"
+              class="card-img-top"
+              alt="Bank Rakyat Indonesia"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Bank Rakyat Indonesia (BRI)</h5>
+              <p class="card-text">
+                PT Bank Rakyat Indonesia (Persero) Tbk (BRI) adalah salah satu bank milik negara
+                (BUMN) terbesar di Indonesia yang fokus pada pemberdayaan UMKM
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Pertamina -->
+        <div class="col-md-4 col-10 col-sm-8">
+          <div class="project-card">
+            <img
+              src="pertamina.jpg"
+              class="card-img-top"
+              alt="PT Pertamina"
+            />
+            <div class="card-body">
+              <h5 class="card-title">PT Pertamina (Persero)</h5>
+              <p class="card-text">
+                PT Pertamina (Persero) adalah BUMN energi terbesar di Indonesia yang didirikan
+                tahun 1968, fokus pada pengelolaan bisnis minyak, gas, dan energi terbarukan
+                terintegrasi dari hulu ke hilir
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: BNI -->
+        <div class="col-md-4 col-10 col-sm-8">
+          <div class="project-card">
+            <img
+              src="bni.jpg"
+              class="card-img-top"
+              alt="PT Bank Negara Indonesia"
+            />
+            <div class="card-body">
+              <h5 class="card-title">PT Bank Negara Indonesia (Persero)</h5>
+              <p class="card-text">
+                PT Bank Negara Indonesia (Persero) Tbk (BNI) adalah salah satu bank BUMN
+                terbesar di Indonesia, didirikan pada 5 Juli 1946.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="footer-custom">
+    <p class="mb-0">© 2025 FStudio. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
