@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* HEADER */
+header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* NAVBAR */
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 20px;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* GRID (CARDS) */
+.grid {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.card {
+    flex: 1;
+    min-width: 200px;
+    padding: 20px;
+    background: lightgray;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+    body {
+        font-size: 15px;
+    }
+
+    .grid {
+        flex-wrap: wrap;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* NAVBAR JADI VERTIKAL */
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* CARD JADI KE BAWAH */
+    .grid {
+        flex-direction: column;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .hero img {
+        height: 200px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+}
