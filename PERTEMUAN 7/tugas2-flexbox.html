@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tugas 2 - Flexbox Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0f172a;
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --bg: #fafafa;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --subtext: #64748b;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    /* ===========================
+       NAVBAR — justify-content: space-between
+    =========================== */
+    .navbar {
+      background-color: var(--primary);
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Logo kiri, menu kanan */
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--accent-light);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-menu a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      background-color: var(--accent);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 0.88rem !important;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--accent-light);
+    }
+
+    /* ===========================
+       HERO SECTION — Flexbox row
+    =========================== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* teks kiri, gambar kanan */
+      gap: 48px;
+      padding: 90px 80px;
+      background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+      min-height: 520px;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 520px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #eef2ff;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #c7d2fe;
+    }
+
+    .hero-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--primary);
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--subtext);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background-color: #4f46e5;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--border);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-illustration {
+      width: 380px;
+      height: 300px;
+      background: linear-gradient(135deg, #6366f1, #818cf8);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-illustration::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .hero-illustration::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 130px;
+      height: 130px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+
+    .illustration-text {
+      font-family: 'Sora', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.3);
+      z-index: 1;
+    }
+
+    /* ===========================
+       CARD GRID — flex-wrap: wrap
+    =========================== */
+    .cards-section {
+      padding: 80px 80px;
+      background: #fff;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap; /* flex-wrap: wrap */
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px 28px;
+      flex: 1 1 260px; /* flexbox sizing */
+      max-width: 300px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+
+    .card-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--subtext);
+      line-height: 1.65;
+    }
+
+    /* ===========================
+       FOOTER — 3 kolom, Flexbox + gap
+    =========================== */
+    .footer {
+      background-color: var(--primary);
+      color: #94a3b8;
+      padding: 56px 80px 32px;
+    }
+
+    .footer-grid {
+      display: flex;
+      gap: 48px; /* gap antar kolom */
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col {
+      flex: 1 1 180px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Sora', sans-serif;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-col p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #1e293b;
+      padding-top: 20px;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #475569;
+    }
+
+    /* ===========================
+       RESPONSIVE — @media query
+    =========================== */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        display: none; /* sembunyikan menu di mobile */
+      }
+
+      .hero {
+        flex-direction: column; /* jadi satu kolom */
+        padding: 48px 24px;
+        text-align: center;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-illustration {
+        width: 100%;
+        max-width: 320px;
+        height: 200px;
+      }
+
+      .cards-section {
+        padding: 48px 20px;
+      }
+
+      .card-grid {
+        flex-direction: column; /* satu kolom di layar kecil */
+        align-items: center;
+      }
+
+      .card {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .footer {
+        padding: 40px 24px 24px;
+      }
+
+      .footer-grid {
+        flex-direction: column; /* satu kolom di mobile */
+        gap: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">build<span>it</span></div>
+    <ul class="nav-menu">
+      <li><a href="#">Fitur</a></li>
+      <li><a href="#">Harga</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#" class="nav-cta">Mulai Gratis</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">🚀 Versi baru sudah tersedia!</div>
+      <h1 class="hero-title">Bangun Produk <span>Lebih Cepat.</span> Lebih Cerdas.</h1>
+      <p class="hero-subtitle">
+        Platform manajemen produk yang membantu tim kamu berkolaborasi, melacak progres, dan deliver fitur tepat waktu dengan mudah.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Coba Sekarang</button>
+        <button class="btn-outline">Lihat Demo →</button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="hero-illustration">
+        <span class="illustration-text">PM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD GRID (flex-wrap: wrap) -->
+  <section class="cards-section">
+    <div class="section-header">
+      <div class="section-label">Fitur Utama</div>
+      <h2 class="section-title">Semua yang Kamu Butuhkan</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon" style="background: #eef2ff;">📋</div>
+        <div class="card-title">Manajemen Backlog</div>
+        <p class="card-desc">Kelola backlog produk dengan mudah, prioritaskan fitur, dan assign ke tim secara efisien.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: #fef3c7;">📊</div>
+        <div class="card-title">Analitik Real-time</div>
+        <p class="card-desc">Dashboard analitik lengkap untuk memantau metrik produk dan keputusan berbasis data.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: #ecfdf5;">🤝</div>
+        <div class="card-title">Kolaborasi Tim</div>
+        <p class="card-desc">Kerjasama lintas divisi menjadi lebih mudah dengan fitur komentar, tagging, dan notifikasi.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background: #fdf2f8;">🔗</div>
+        <div class="card-title">Integrasi Mudah</div>
+        <p class="card-desc">Terhubung langsung dengan Jira, Notion, Figma, Slack, dan 50+ tools yang sudah kamu pakai.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (3 kolom Flexbox + gap) -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <!-- Kolom 1 -->
+      <div class="footer-col">
+        <h4>buildit.</h4>
+        <p>Platform untuk product manager modern yang ingin bekerja lebih efektif dan terstruktur.</p>
+      </div>
+
+      <!-- Kolom 2 -->
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul class="footer-links">
+          <li><a href="#">Fitur</a></li>
+          <li><a href="#">Harga</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Tentang Kami</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3 -->
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul class="footer-links">
+          <li><a href="#">hello@buildit.id</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 buildit. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

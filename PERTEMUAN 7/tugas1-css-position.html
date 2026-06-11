@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tugas 1 - CSS Position</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5c6bc0;
+      --accent: #26c6da;
+      --bg: #f0f2f8;
+      --card-bg: #ffffff;
+      --text: #2d3748;
+      --subtext: #718096;
+      --nav-bg: #1a202c;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 200vh; /* supaya bisa di-scroll */
+    }
+
+    /* ===== STICKY NAVBAR ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--nav-bg);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    .navbar .logo {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    .navbar ul li a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .navbar ul li a:hover {
+      color: var(--accent);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .content {
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .content h2 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    /* ===== PROFILE CARD ===== */
+    .profile-card {
+      position: relative; /* parent container */
+      width: 280px;
+      height: 350px;
+      background-color: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(92, 107, 192, 0.15);
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 24px;
+      z-index: 1;
+    }
+
+    /* ===== BADGE STATUS (ABSOLUTE) ===== */
+    .badge-status {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 10; /* z-index bonus */
+      box-shadow: 0 2px 6px rgba(46, 125, 50, 0.2);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #43a047;
+      border-radius: 50%;
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* ===== AVATAR ===== */
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(92, 107, 192, 0.4);
+      flex-shrink: 0;
+    }
+
+    .profile-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .profile-role {
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: 600;
+      background: #ede7f6;
+      padding: 3px 12px;
+      border-radius: 12px;
+    }
+
+    .profile-bio {
+      font-size: 0.8rem;
+      color: var(--subtext);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .profile-stats {
+      display: flex;
+      gap: 20px;
+      margin-top: 6px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--subtext);
+    }
+
+    .divider {
+      width: 1px;
+      height: 30px;
+      background-color: #e2e8f0;
+      align-self: center;
+    }
+
+    /* ===== SCROLL CONTENT ===== */
+    .scroll-section {
+      margin-top: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .dummy-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      color: var(--subtext);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .dummy-card h3 {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    /* ===== BACK TO TOP BUTTON (FIXED) ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999; /* z-index bonus */
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(92, 107, 192, 0.45);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .back-to-top:hover {
+      background-color: #3949ab;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <h2>Profile Card</h2>
+
+    <!-- PROFILE CARD dengan position: relative -->
+    <div class="profile-card">
+
+      <!-- BADGE STATUS dengan position: absolute -->
+      <div class="badge-status">
+        <span class="badge-dot"></span>
+        Online
+      </div>
+
+      <div class="avatar">RA</div>
+      <div class="profile-name">Farrel Raditya</div>
+      <div class="profile-role">Product Manager</div>
+      <p class="profile-bio">Passionate about building user-centric products and bridging the gap between design & engineering.</p>
+      <div class="profile-stats">
+        <div class="stat-item">
+          <div class="stat-num">24</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">4yr</div>
+          <div class="stat-label">Experience</div>
+        </div>
+        <div class="divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Success</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Konten dummy buat scrolling -->
+    <div class="scroll-section">
+      <div class="dummy-card">
+        <h3>Tentang CSS Position</h3>
+        CSS Position digunakan untuk mengatur tata letak elemen di halaman web. Ada beberapa nilai: static, relative, absolute, fixed, dan sticky. Masing-masing punya perilaku yang berbeda tergantung konteks penggunaannya.
+      </div>
+      <div class="dummy-card">
+        <h3>Position Relative</h3>
+        Elemen dengan position: relative tetap berada di alur normal dokumen, tapi bisa digeser menggunakan top, right, bottom, left. Elemen ini juga jadi parent/acuan bagi elemen absolute di dalamnya.
+      </div>
+      <div class="dummy-card">
+        <h3>Position Absolute</h3>
+        Elemen absolute dikeluarkan dari alur normal dokumen dan diposisikan relatif terhadap ancestor terdekat yang punya position selain static. Cocok untuk badge, tooltip, dropdown menu.
+      </div>
+      <div class="dummy-card">
+        <h3>Position Fixed</h3>
+        Fixed membuat elemen menempel pada viewport (layar browser), tidak bergerak saat halaman di-scroll. Biasa dipakai untuk navbar, tombol back-to-top, atau chat widget.
+      </div>
+      <div class="dummy-card">
+        <h3>Position Sticky</h3>
+        Sticky adalah kombinasi relative dan fixed. Elemen berperilaku seperti relative sampai mencapai titik tertentu saat scroll, lalu "menempel" seperti fixed. Cocok untuk header tabel atau navbar yang harus tetap terlihat.
+      </div>
+      <div class="dummy-card">
+        <h3>Z-Index</h3>
+        Z-index mengontrol urutan tumpukan (stacking order) elemen yang saling overlap. Nilai lebih tinggi berarti elemen tampil di depan. Z-index hanya berlaku pada elemen yang punya position selain static.
+      </div>
+    </div>
+  </main>
+
+  <!-- BACK TO TOP BUTTON dengan position: fixed -->
+  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+    ↑ Back to Top
+  </button>
+
+</body>
+</html>
