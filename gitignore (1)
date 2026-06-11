@@ -1,0 +1,100 @@
+# ===========================
+# OS & System Files
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ===========================
+# Editor & IDE
+# ===========================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains (WebStorm, PhpStorm, dll)
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+
+# ===========================
+# Logs & Temp Files
+# ===========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ===========================
+# Node (jika suatu saat pakai npm / bundler)
+# ===========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===========================
+# PHP
+# ===========================
+
+# File upload dari aplikasi CRUD (jangan di-commit)
+uploads/
+storage/
+
+# PHP error log
+php_errorlog
+
+# Composer (jika dipakai di masa depan)
+vendor/
+composer.lock
+
+# ===========================
+# Database & Kredensial
+# ===========================
+
+# Jangan commit konfigurasi database yang berisi password
+# (uncomment baris di bawah ini jika config.php menyimpan password asli)
+# PERTEMUAN 12/praktikum_crud1/config.php
+
+# File dump database (selain database.sql bawaan proyek)
+*.sql.gz
+*.dump
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# ===========================
+# XAMPP / Server Lokal
+# ===========================
+error_log
+access_log
+
+# ===========================
+# Build Output
+# ===========================
+dist/
+build/
+.cache/
+
+# ===========================
+# Laporan PDF
+# (hapus baris ini jika ingin PDF ikut di-commit)
+# ===========================
+*.pdf
